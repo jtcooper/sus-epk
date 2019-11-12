@@ -7,8 +7,10 @@ class Header extends React.Component {
             <div class="header">
                 <Row>
                     <Col>
-                        <span className="header-inline" style={{marginRight:"3em"}}><h3 className="text-header"><strong>SUIT UP, SOLDIER</strong></h3></span>
-                        <span className="header-inline"><a className="header-anchor" href="#">Home</a></span>
+                        <span className="header-inline"><a className="header-anchor" href="http://suitupsoldier.com/">
+                            <h3 className="text-header"><strong>SUIT UP, SOLDIER</strong></h3></a></span>
+                        {/* FIXME: following links need to be in a separate Col; also want to think about hiding them for mobile? */}
+                        <span className="header-inline"><a className="header-anchor" href="http://suitupsoldier.com/">Home</a></span>
                         <span className="header-inline"><a className="header-anchor" href="#">Contact</a></span>
                         <span className="header-inline"><a className="header-anchor" href="#">Shop</a></span>
                     </Col>

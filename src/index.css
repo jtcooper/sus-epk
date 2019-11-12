@@ -15,6 +15,7 @@ code {
 
 #infographic {
   max-width: 100%;
+  min-width: 300px;
 }
 
 .header {
@@ -44,8 +45,12 @@ code {
 
 .social-media-icon {
   width: 24px;
-  margin-right: 0.3em;
-  margin-left: 0.3em;
+  margin-right: 0.4em;
+  margin-left: 0.4em;
+}
+
+.text-spaced {
+  letter-spacing: 0.5em;
 }
 
 .header-inline {
@@ -54,10 +59,16 @@ code {
 }
 
 .header-anchor {
-  color: #222222;
+  color: #444444;
   text-decoration: none !important;
 }
 
 .header-anchor:hover {
   color: #000000;
+}
+
+.vertical-align {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
