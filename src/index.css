@@ -23,6 +23,7 @@ code {
   margin-bottom: 3em;
 }
 
+
 .text-header {
   /* font-family: 'Impact'; */
 }
@@ -55,6 +56,33 @@ code {
 .header-inline {
   margin-right: 2em;
   display: inline-block;
+}
+
+.mobile-header {
+  padding-top: .5em;
+  padding-bottom: .5em;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+.small-header-inline {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.mobile-menu-button-open {
+  position: absolute;
+  font-size: 1.4em;
+  margin-left: .2em;
+  margin-top: -.1em;
+  /* margin-right: 20px; */
+  /* color: white; */
+  background-color: white;
+  text-decoration: none;
+  border: none;
 }
 
 .header-anchor {
@@ -93,22 +121,51 @@ code {
   margin-bottom: 1em;
 }
 
+#mobile-menu {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  background-color: #000000dd;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.close-button-container {
+  text-align: right;
+  /* background-color: #000000; */
+  padding-top: 1.6em;
+  padding-right: 2em;
+  padding-bottom: .6em;
+  width: 100%;
+}
+
+.mobile-menu-button-container {
+  text-align: right;
+  /* background-color: #0000; */
+  padding: .8em;
+  padding-right: 3em;
+  width: 100%;
+}
+.mobile-menu-button {
+  font-size: 1.6em;
+  text-align: right;
+  color: white;
+  background-color: #0000;
+  text-decoration: none;
+  border: none;
+}
+.mobile-menu-button:hover {
+  color: #bbb;
+  /* background-color: #111111ff; */
+  transition: 0.2s;
+  text-decoration: none;
+}
+
 /* .vertical-align {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
-} */
-
-/* body, html {
-  height: 100%;
-}
-
-.bg {
-  background-image: url("/img/theRise1.jpg");
-
-  height: 100%;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 } */

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Row, Col} from 'reactstrap';
 import {links} from '../resource/links';
+import { MobileMenu } from './mobileMenu';
 
 /**
  * Window resize source: https://goshakkk.name/different-mobile-desktop-tablet-layouts-react/
@@ -10,7 +11,8 @@ class Header extends React.Component {
   constructor() {
     super();
     this.state = {
-      width: window.innerWidth
+      width: window.innerWidth,
+      mobileMenuVisible: false
     };
   };
 
@@ -24,13 +26,19 @@ class Header extends React.Component {
   }
 
   handleWindowSizeChange = () => {
-    this.setState({ width: window.innerWidth });
+    this.setState({
+      width: window.innerWidth,
+      mobileMenuVisible: false
+    });
   };
 
-  title = () => {
+  title = (headerSpacing) => {
     return (
-      <span className="header-inline"><a className="header-anchor" href={ links.home }>
-        <h3 className="text-header"><strong>SUIT UP, SOLDIER</strong></h3></a></span>
+      <span className={headerSpacing ? "header-inline" : "small-header-inline"}>
+        <a className="header-anchor" href={ links.home }>
+          <h3 className="text-header"><strong>SUIT UP, SOLDIER</strong></h3>
+        </a>
+      </span>
     );
   };
 
@@ -63,16 +71,35 @@ class Header extends React.Component {
     );
   };
 
+  openMobileMenu = () => {
+    this.setState({
+      mobileMenuVisible: true
+    });
+  }
+
+  closeMobileMenu = () => {
+    this.setState({
+      mobileMenuVisible: false
+    });
+  }
+
   render() {
     const width = this.state.width;
-    const isMobile = width <= 500;
+    const isMobile = width <= 700;
     const combineButtons = width >= 900;
 
     if (isMobile) {
       return (
-        <div class="header">
-          { this.title() }
-          {/* FIXME: implement */}
+        <div>
+          <div className="mobile-header">
+            <span className="mobile-menu-button-open">
+              <button className="mobile-menu-button-open" onClick={this.openMobileMenu}>&#8942;</button>
+            </span>
+            { this.title(false) }
+            <MobileMenu visible={this.state.mobileMenuVisible} onClose={this.closeMobileMenu}/>
+            {/* FIXME: implement */}
+          </div>
+          <div style={{margin:'3em'}}/>
         </div>
       )
     } else if (combineButtons) {
@@ -80,7 +107,7 @@ class Header extends React.Component {
         <div class="header">
           <Row>
             <Col className="col-12 col-md-8">
-              { this.title() }
+              { this.title(true) }
               { this.buttons() }
             </Col>
             { this.socialMedia() }
@@ -92,7 +119,7 @@ class Header extends React.Component {
         <div class="header">
           <Row>
             <Col className="col-12 col-md-4">
-              { this.title() }
+              { this.title(true) }
             </Col>
             <Col className="col-md-4">
               { this.buttons() }

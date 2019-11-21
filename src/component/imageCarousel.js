@@ -4,25 +4,25 @@ import {Carousel, CarouselItem, CarouselCaption, CarouselControl, CarouselIndica
 
 const items = [
   {
-    src: 'img/carousel/theRise1.jpg',
-    altText: 'The Rise',
-    caption: ''
-  },
-  {
     src: 'img/carousel/bbqShow.png',
     altText: 'BBQ Show',
     caption: ''
   },
   {
-    src: 'img/carousel/velour2.jpg',
-    altText: 'Velour',
-    caption: ''
-  },
-  {
-    src: 'img/carousel/theRise2.jpg',
+    src: 'img/carousel/theRise1.jpg',
     altText: 'The Rise',
     caption: ''
   },
+  // {
+  //   src: 'img/carousel/velour2.jpg',
+  //   altText: 'Velour',
+  //   caption: ''
+  // },
+  // {
+  //   src: 'img/carousel/theRise2.jpg',
+  //   altText: 'The Rise',
+  //   caption: ''
+  // },
   {
     src: 'img/carousel/velour.jpg',
     altText: 'Velour',
