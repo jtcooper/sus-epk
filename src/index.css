@@ -15,7 +15,6 @@ code {
 
 #infographic {
   max-width: 100%;
-  /* min-width: 200px; */
 }
 
 .header {
@@ -33,10 +32,26 @@ code {
   padding: 0;
 }
 
+/* --- Footer properties --- */
 .footer {
   margin-top: 2em;
   background-color: #222222;
   padding: 2em;
+}
+.footer-link-container {
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+.footer-link {
+  font-size: 1.1em;
+  color: #aaaaaa;
+  text-decoration: none !important;
+}
+.footer-link:hover {
+  color: #ffffff;
+  transition: 0.1s;
+  text-decoration: none;
 }
 
 .text-white {
@@ -69,20 +84,26 @@ code {
   background-color: white;
 }
 .small-header-inline {
-  width: 100%;
   display: inline-block;
-  text-align: center;
+  /* width: 100%; */
+  /* text-align: center; */
 }
 .mobile-menu-button-open {
-  position: absolute;
+  /* position: absolute; */
   font-size: 1.4em;
   margin-left: .2em;
   margin-top: -.1em;
-  /* margin-right: 20px; */
-  /* color: white; */
+  padding-right: .5em;
   background-color: white;
   text-decoration: none;
   border: none;
+}
+
+.inline {
+  display: inline-block;
+}
+.center {
+  text-align: center;
 }
 
 .header-anchor {
@@ -162,6 +183,18 @@ code {
   /* background-color: #111111ff; */
   transition: 0.2s;
   text-decoration: none;
+}
+
+.spotify-follow-container {
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  min-width: 100%;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.align-content-right {
+  text-align: right;
 }
 
 /* .vertical-align {

@@ -1,9 +1,14 @@
 import React from 'react';
 import {Row, Col} from 'reactstrap';
-import {links} from '../resource/links';
-import { MobileMenu } from './mobileMenu';
+import {links, socialMediaLinks} from '../resource/links';
+import { MobileMenu } from '../component/mobileMenu';
+import { config } from '../resource/globals';
 
 /**
+ * Header band over the entire website. Adds an event listener for window resizing events, and 
+ * dynamically spaces elements based on the size of the window. If the window size is small enough,
+ * will just display the site title and add an open-menu button.
+ * 
  * Window resize source: https://goshakkk.name/different-mobile-desktop-tablet-layouts-react/
  */
 class Header extends React.Component {
@@ -14,14 +19,17 @@ class Header extends React.Component {
       width: window.innerWidth,
       mobileMenuVisible: false
     };
+    window.addEventListener('resize', this.handleWindowSizeChange);
   };
 
-  componentWillMount() {
-    window.addEventListener('resize', this.handleWindowSizeChange);
-  }
+  // --- METHODS FOR MANAGING WINDOW RESIZING ---
 
-  // make sure to remove the listener when the component is not mounted anymore
+  // componentWillMount() {
+  //   window.addEventListener('resize', this.handleWindowSizeChange);
+  // }
+
   componentWillUnmount() {
+    // remove the listener when the component is removed
     window.removeEventListener('resize', this.handleWindowSizeChange);
   }
 
@@ -31,6 +39,8 @@ class Header extends React.Component {
       mobileMenuVisible: false
     });
   };
+
+  // --- BASE COMPONENT RENDERING ---
 
   title = (headerSpacing) => {
     return (
@@ -46,30 +56,26 @@ class Header extends React.Component {
     return (
       <span>
         <span className="header-inline"><a className="header-anchor" href={ links.home }>Home</a></span>
-        <span className="header-inline"><a className="header-anchor" href="#">Contact</a></span>
-        <span className="header-inline"><a className="header-anchor" href="#">Shop</a></span>
+        <span className="header-inline"><a className="header-anchor" href={ links.contact }>Contact</a></span>
+        <span className="header-inline"><a className="header-anchor" href={ links.shop }>Shop</a></span>
       </span>
     );
   };
 
   socialMedia = () => {
+    const smLinks = socialMediaLinks.map((link) => 
+      <a key={link.alt} href={link.link}>
+        <img className="social-media-icon" src={"/img/socialMedia/" + link.icon} alt={link.link}/>
+      </a>
+    )
     return (
-      <Col className="col-md-4" style={{textAlign:"right"}}>
-        <a href={links.facebook}>
-            <img className="social-media-icon" src="/img/socialMedia/facebook.png" alt="Facebook"/></a>
-        <a href={links.instagram}>
-            <img className="social-media-icon" src="/img/socialMedia/instagram.png" alt="Instagram"/></a>
-        <a href={links.youtube}>
-            <img className="social-media-icon" src="/img/socialMedia/youtube.png" alt="YouTube"/></a>
-        <a href={links.spotify}>
-            <img className="social-media-icon" src="/img/socialMedia/spotify.png" alt="Spotify"/></a>
-        <a href={links.appleMusic}>
-            <img className="social-media-icon" src="/img/socialMedia/music.png" alt="Apple Music"/></a>
-        <a href={links.soundcloud}>
-            <img className="social-media-icon" src="/img/socialMedia/soundcloud.png" alt="SoundCloud"/></a>
+      <Col className="col-md-4 align-content-right">
+        {smLinks}
       </Col>
     );
   };
+
+  // --- MOBILE MENU EVENT HANDLERS ---
 
   openMobileMenu = () => {
     this.setState({
@@ -83,9 +89,11 @@ class Header extends React.Component {
     });
   }
 
+  // --- RENDER ---
+
   render() {
     const width = this.state.width;
-    const isMobile = width <= 700;
+    const isMobile = width <= config.maxMobileWidth;
     const combineButtons = width >= 900;
 
     if (isMobile) {
@@ -97,14 +105,13 @@ class Header extends React.Component {
             </span>
             { this.title(false) }
             <MobileMenu visible={this.state.mobileMenuVisible} onClose={this.closeMobileMenu}/>
-            {/* FIXME: implement */}
           </div>
-          <div style={{margin:'3em'}}/>
+          <div style={{margin:'4em'}}/>
         </div>
       )
     } else if (combineButtons) {
       return (
-        <div class="header">
+        <div className="header">
           <Row>
             <Col className="col-12 col-md-8">
               { this.title(true) }
@@ -116,7 +123,7 @@ class Header extends React.Component {
       );
     } else {
       return (
-        <div class="header">
+        <div className="header">
           <Row>
             <Col className="col-12 col-md-4">
               { this.title(true) }

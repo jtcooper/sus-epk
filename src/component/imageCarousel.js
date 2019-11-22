@@ -1,32 +1,27 @@
 import React from 'react';
 import {useState} from 'react';
-import {Carousel, CarouselItem, CarouselCaption, CarouselControl, CarouselIndicators} from 'reactstrap';
+import {Carousel, CarouselItem, CarouselControl, CarouselIndicators} from 'reactstrap';
 
 const items = [
   {
     src: 'img/carousel/bbqShow.png',
-    altText: 'BBQ Show',
-    caption: ''
+    altText: 'BBQ Show'
   },
   {
     src: 'img/carousel/theRise1.jpg',
-    altText: 'The Rise',
-    caption: ''
+    altText: 'The Rise'
   },
-  // {
-  //   src: 'img/carousel/velour2.jpg',
-  //   altText: 'Velour',
-  //   caption: ''
-  // },
-  // {
-  //   src: 'img/carousel/theRise2.jpg',
-  //   altText: 'The Rise',
-  //   caption: ''
-  // },
+  {
+    src: 'img/carousel/hairFlip.png',
+    altText: 'Wes Hair Flip'
+  },
+  {
+    src: 'img/carousel/nov2018.jpg',
+    altText: 'Full Band'
+  },
   {
     src: 'img/carousel/velour.jpg',
-    altText: 'Velour',
-    caption: ''
+    altText: 'Velour'
   }
 ]
 
@@ -59,7 +54,6 @@ export const ImageCarousel = (props) => {
         key={item.src}
       >
         <img src={item.src} alt={item.altText} style={{maxWidth:'100%'}} />
-        {/* <CarouselCaption captionText={item.caption} captionHeader={item.caption} /> */}
       </CarouselItem>
     );
   });
