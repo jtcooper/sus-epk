@@ -13,7 +13,7 @@ export const links = {
   // other links
   credits: "http://suitupsoldier.com/credit",
   reachProvoArticle: "https://reachprovo.com/2019/05/22/interview-wes-monahan-on-suit-up-soldiers-new-single-tongue-tied-twisted/",
-  dailyUniverseArticle: "#"
+  dailyUniverseArticle: "http://suitupsoldier.com/img/IMG_9066.jpeg"
 };
 export const socialMediaLinks = [
   {
