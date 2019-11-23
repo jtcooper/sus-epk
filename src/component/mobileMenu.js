@@ -15,7 +15,7 @@ export default function MobileMenu(props) {
         </div>
         <div className="mobile-menu-button-container"><a className="mobile-menu-button" href={ links.home }>Home</a></div>
         <div className="mobile-menu-button-container"><a className="mobile-menu-button" href={ links.contact }>Contact</a></div>
-        <div className="mobile-menu-button-container"><a className="mobile-menu-button" href={ links.shop }>Shop</a></div>
+        {/* <div className="mobile-menu-button-container"><a className="mobile-menu-button" href={ links.shop }>Shop</a></div> */}
       </div>
     );
   }

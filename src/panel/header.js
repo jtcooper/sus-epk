@@ -64,7 +64,7 @@ class Header extends React.Component {
       <span>
         <span className="header-inline"><a className="header-anchor" href={ links.home }>Home</a></span>
         <span className="header-inline"><a className="header-anchor" href={ links.contact }>Contact</a></span>
-        <span className="header-inline"><a className="header-anchor" href={ links.shop }>Shop</a></span>
+        {/* <span className="header-inline"><a className="header-anchor" href={ links.shop }>Shop</a></span> */}
       </span>
     );
   };
