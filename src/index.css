@@ -63,6 +63,11 @@ code {
   margin-right: 0.4em;
   margin-left: 0.4em;
 }
+.social-media-icon-mobile {
+  width: 24px;
+  margin-right: 0.6em;
+  margin-left: 0.6em;
+}
 
 .text-spaced {
   letter-spacing: 0.5em;
@@ -146,7 +151,7 @@ code {
   height: 100%;
   width: 100%;
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   left: 0;
   top: 0;
   background-color: #000000dd;

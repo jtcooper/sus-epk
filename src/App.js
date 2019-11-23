@@ -6,13 +6,34 @@ import AboutPanel from './panel/about';
 import Footer from './panel/footer';
 import LeftPanel from './panel/leftPanel';
 import PressPanel from './panel/press';
+import MobileMenu from './component/mobileMenu';
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      mobileMenuVisible: false
+    };
+  }
+
+  openMobileMenu = () => {
+    this.setState({
+      mobileMenuVisible: true
+    });
+  }
+
+  closeMobileMenu = () => {
+    this.setState({
+      mobileMenuVisible: false
+    });
+  }
+
   render() {
     return (
       <div>
         <Container className="main-container">
-          <Header/>
+          <MobileMenu visible={this.state.mobileMenuVisible} onClose={this.closeMobileMenu}/>
+          <Header openMobileMenu={this.openMobileMenu} closeMobileMenu={this.closeMobileMenu}/>
           <Row>
             {/* Note the use of two classnames: the first one ensures that we get either three columns or one column */}
             <Col className="col-12 col-lg-4"><LeftPanel/></Col>

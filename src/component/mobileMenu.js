@@ -6,7 +6,7 @@ import {links} from '../resource/links.js';
  * 
  * @param {visible, onClose} props 
  */
-export function MobileMenu(props) {
+export default function MobileMenu(props) {
   if (props.visible) {
     return (
       <div id="mobile-menu">

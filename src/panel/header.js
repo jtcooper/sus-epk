@@ -1,7 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'reactstrap';
 import {links, socialMediaLinks} from '../resource/links';
-import { MobileMenu } from '../component/mobileMenu';
 import { config } from '../resource/globals';
 
 /**
@@ -16,15 +15,18 @@ class Header extends React.Component {
   constructor() {
     super();
     this.state = {
-      width: window.innerWidth,
-      mobileMenuVisible: false
+      width: window.innerWidth
     };
     window.addEventListener('resize', this.handleWindowSizeChange);
   };
 
   // --- METHODS FOR MANAGING WINDOW RESIZING ---
 
-  // componentWillMount() {
+  isMobile = (width) => {
+    return width <= config.maxMobileWidth;
+  }
+
+  // componentWillMount() { // deprecated
   //   window.addEventListener('resize', this.handleWindowSizeChange);
   // }
 
@@ -34,9 +36,14 @@ class Header extends React.Component {
   }
 
   handleWindowSizeChange = () => {
+    let width = window.innerWidth;
+    if (!this.isMobile(width)) {
+      // window size flipped from is mobile to not is mobile; this is the only reason the mobile 
+      // menu should close if it was open
+      this.props.closeMobileMenu();
+    }
     this.setState({
-      width: window.innerWidth,
-      mobileMenuVisible: false
+      width: width
     });
   };
 
@@ -62,38 +69,37 @@ class Header extends React.Component {
     );
   };
 
-  socialMedia = () => {
-    const smLinks = socialMediaLinks.map((link) => 
-      <a key={link.alt} href={link.link}>
-        <img className="social-media-icon" src={"/img/socialMedia/" + link.icon} alt={link.link}/>
-      </a>
-    )
-    return (
-      <Col className="col-md-4 align-content-right">
-        {smLinks}
-      </Col>
-    );
+  socialMedia = (mobile = false) => {
+    if (mobile) {
+      const smLinks = socialMediaLinks.map((link) => 
+        <a key={link.alt} href={link.link}>
+          <img className="social-media-icon-mobile" src={"/img/socialMedia/" + link.icon} alt={link.link}/>
+        </a>
+      )
+      return (
+        <Col className="col-md-4 center">
+          {smLinks}
+        </Col>
+      );
+    } else {
+      const smLinks = socialMediaLinks.map((link) => 
+        <a key={link.alt} href={link.link}>
+          <img className="social-media-icon" src={"/img/socialMedia/" + link.icon} alt={link.link}/>
+        </a>
+      )
+      return (
+        <Col className="col-md-4 align-content-right">
+          {smLinks}
+        </Col>
+      );
+    }
   };
-
-  // --- MOBILE MENU EVENT HANDLERS ---
-
-  openMobileMenu = () => {
-    this.setState({
-      mobileMenuVisible: true
-    });
-  }
-
-  closeMobileMenu = () => {
-    this.setState({
-      mobileMenuVisible: false
-    });
-  }
 
   // --- RENDER ---
 
   render() {
     const width = this.state.width;
-    const isMobile = width <= config.maxMobileWidth;
+    const isMobile = this.isMobile(width);
     const combineButtons = width >= 900;
 
     if (isMobile) {
@@ -101,12 +107,14 @@ class Header extends React.Component {
         <div>
           <div className="mobile-header">
             <span className="mobile-menu-button-open">
-              <button className="mobile-menu-button-open" onClick={this.openMobileMenu}>&#8942;</button>
+              <button className="mobile-menu-button-open" onClick={this.props.openMobileMenu}>&#8942;</button>
             </span>
             { this.title(false) }
-            <MobileMenu visible={this.state.mobileMenuVisible} onClose={this.closeMobileMenu}/>
           </div>
           <div style={{margin:'4em'}}/>
+          <div className="bottom-spacer">
+            { this.socialMedia(true) }
+          </div>
         </div>
       )
     } else if (combineButtons) {
