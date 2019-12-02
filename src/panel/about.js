@@ -24,11 +24,7 @@ function AboutPanel(props) {
       </div>
       <h2 className="text-spaced"><strong>CONTACT</strong></h2>
       <br/>
-      <p className="text-inline"><strong>MANAGEMENT</strong></p>
-      <p className="text-inline">Wesley Monahan</p>
-      <p className="text-inline"><a href="mailto:wesley@suitupsoldier.com">wesley@suitupsoldier.com</a></p>
-      <br/>
-      <p className="text-inline"><strong>BOOKING</strong></p>
+      <p className="text-inline"><strong>MANAGEMENT/BOOKING</strong></p>
       <p className="text-inline">McKay Johnson</p>
       <p className="text-inline"><a href="mailto:mckay@suitupsoldier.com">mckay@suitupsoldier.com</a></p>
       <br/>
