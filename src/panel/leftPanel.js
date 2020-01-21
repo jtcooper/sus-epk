@@ -5,8 +5,8 @@ export class LeftPanel extends React.Component {
   render() {
     return (
       <div>
-        <YoutubeFrame title="epk" src="https://www.youtube.com/embed/Vy3_wCm9MDw"/>
-        <YoutubeFrame title="chainsmokers" src="https://www.youtube.com/embed/pAdAq9KRUfI"/>
+        <YoutubeFrame title="villains" src="https://www.youtube.com/embed/yvjlmTXLgIg"/>
+        <YoutubeFrame title="tongue tied twisted" src="https://www.youtube.com/embed/WEYzM7kCBLg"/>
       </div>
     )
   }
