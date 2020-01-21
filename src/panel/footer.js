@@ -11,7 +11,7 @@ export class Footer extends React.Component {
       <div className="footer center">
         <p className="bottom-spacer">{smLinks}</p>
         <p className="footer-link-container"><a className="footer-link" href={links.credits}>Credit</a></p>
-        <p className="text-white">&copy;Suit Up, Soldier 2019</p>
+        <p className="text-white">&copy;Suit Up, Soldier 2020</p>
       </div>
     );
   }
