@@ -2,7 +2,12 @@ import React from 'react';
 import {useState} from 'react';
 import {Carousel, CarouselItem, CarouselControl, CarouselIndicators} from 'reactstrap';
 
+// Image dimensions: 800 x 533
 const items = [
+  {
+    src: 'img/carousel/coinBYU.jpg',
+    altText: 'COIN at BYU'
+  },
   {
     src: 'img/carousel/bbqShow.png',
     altText: 'BBQ Show'
@@ -16,7 +21,7 @@ const items = [
     altText: 'Wes Hair Flip'
   },
   {
-    src: 'img/carousel/nov2018.jpg',
+    src: 'img/carousel/dec2019.jpg',
     altText: 'Full Band'
   },
   {
