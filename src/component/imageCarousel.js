@@ -9,23 +9,19 @@ const items = [
     altText: 'COIN at BYU'
   },
   {
-    src: 'img/carousel/bbqShow.png',
-    altText: 'BBQ Show'
-  },
-  {
-    src: 'img/carousel/theRise1.jpg',
-    altText: 'The Rise'
+    src: 'img/carousel/dec2019.jpg',
+    altText: 'Full Band'
   },
   {
     src: 'img/carousel/hairFlip.png',
     altText: 'Wes Hair Flip'
   },
   {
-    src: 'img/carousel/dec2019.jpg',
-    altText: 'Full Band'
+    src: 'img/carousel/coinBYUMcKay.jpg',
+    altText: 'Wes Hair Flip'
   },
   {
-    src: 'img/carousel/velour.jpg',
+    src: 'img/carousel/dec2019Stairs.jpg',
     altText: 'Velour'
   }
 ]

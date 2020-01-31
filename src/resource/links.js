@@ -11,9 +11,9 @@ export const links = {
   appleMusic: "https://music.apple.com/ca/artist/suit-up-soldier/id1348708315",
   soundcloud: "https://soundcloud.com/suit-up-soldier",
   // other links
-  credits: "http://suitupsoldier.com/credit",
+  credits: "https://suitupsoldier.com/credit",
   reachProvoArticle: "https://reachprovo.com/2019/05/22/interview-wes-monahan-on-suit-up-soldiers-new-single-tongue-tied-twisted/",
-  dailyUniverseArticle: "http://suitupsoldier.com/img/IMG_9066.jpeg"
+  dailyUniverseArticle: "https://suitupsoldier.com/img/IMG_9066.jpeg"
 };
 export const socialMediaLinks = [
   {
