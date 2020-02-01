@@ -12,6 +12,7 @@ export class LeftPanel extends React.Component {
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           src="https://suitupsoldier.com/video/promoJan2020-web.mp4"
+          poster="img/promoJan2020-poster.jpg"
           allowFullScreen>
             Sorry, your browser doesn't support embedded videos.
         </video>
